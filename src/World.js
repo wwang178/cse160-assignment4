@@ -247,7 +247,7 @@ let g_isLightOn = true;
 let g_lightColor = [1.0, 1.0, 1.0, 1.0];
 let g_animateLight = true;
 
-let g_localBuild = true; // this line changes whether running locally or on github pages
+let g_localBuild = false; // this line changes whether running locally or on github pages
 
 let g_map = [];
 let g_mapCubes = [];
