@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Change a point color</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="Access-Control-Allow-Origin" content="*">
+    <style>
+      #webgl{
+        width: 600px;
+        height: 600px;
+        float: left;
+      }
+    </style>
+  </head>
+
+  <body onload="main()">
+    <canvas id="webgl" width="600" height="600">
+    Please use a browser that supports "canvas"
+    </canvas>
+
+    <div id="fpsCounter"></div>
+
+    <hr>
+
+    Normals
+    <br>
+    <button type="button" id="normalOn">Normal On</button>
+    <button type="button" id="normalOff">Normal Off</button>
+
+    <hr>
+
+    Light Position
+    <br>
+    LightX<input type="range" min="0" max="10000" value="1" class="slider" id="lightSlideX">
+    <br>
+    LightY<input type="range" min="0" max="10000" value="1" class="slider" id="lightSlideY">
+    <br>
+    LightZ<input type="range" min="0" max="10000" value="1" class="slider" id="lightSlideZ">
+    <br>
+    <button type="button" id="animateLightButton">Animate Light</button>
+
+    <hr>
+
+    Light color
+    <br>
+    Red <input type="range" min="0" max="100" value="100" class="slider" id="redSlide">
+    <br>
+    Green <input type="range" min="0" max="100" value="100" class="slider" id="greenSlide">
+    <br>
+    Blue <input type="range" min="0" max="100" value="100" class="slider" id="blueSlide">
+    
+    <hr>
+
+    Light On/Off
+    <br>
+    <button type="button" id="lightsOnButton">Lights On</button>
+    <button type="button" id="lightsOffButton">Lights Off</button>
+
+    <hr>
+
+    Rotate cube<input type="range" min="-360" max="360" value="0" class="slider" id="angleHSlide">
+
+    <hr>
+
+    Custom map loader
+    <br>
+    <input type="text" id="customMapInput"> <- paste custom map data into here
+    <br>
+    <button type="button" id="loadCustomMapButton"> Load custom map </button>
+    
+    <hr>
+
+    Map defaults
+    <br>
+    <button type="button" id="loadEmptyMapButton">Load empty map</button>
+    <br>
+    <button type="button" id="loadBasicMapButton">Load basic map</button>
+
+    <hr>
+
+    Snake
+    <br>
+    <button type="button" id="playSnakeButton">Play Snake</button> <input type="checkbox" id="snakeEasyModeCheckbox"> easy mode (the snake won't move by itself)
+    <br>
+    <div id="snakeOutput"></div>
+
+    <hr>
+
+    <!-- FEATURES -->
+    <div>
+      <b>---Features:---</b><br>
+      - Same as Blocky World, you can place/delete blocks and play Snake in the bounded area
+    </div>
+
+    <hr>
+
+    <!-- NOTES -->
+    <div>
+      <b>---NOTES:---</b><br>
+      - WASD - movement (smooth + allows for combination of directions)<br>
+      - Q / E - left / right<br>
+      - T / G- place / delete block<br>
+      - R / F - up / down<br>
+      - P - print out world state (open console see data and copy)<br>
+      - Load custom map (press P to print out current map data in console)<br>
+      - Press down left click to pan camera<br>
+      - Press the "Play Snake" button to play a game of Snake (easy mode causes the snake to not move automatically)<br>
+    </div>
+
+    <hr>
+
+    <p>
+    <script src="lib/cuon-matrix-cse160.js"></script>
+    <script src="lib/cuon-utils.js"></script>
+    <script src="lib/webgl-debug.js"></script>
+    <script src="lib/webgl-utils.js"></script>
+
+    <script src="src/Point.js"></script>
+    <script src="src/Triangle.js"></script>
+    <script src="src/Circle.js"></script>
+    <script src="src/Cube.js"></script>
+    <script src="src/Camera.js"></script>
+    <script src="src/Snake.js"></script>
+    <script src="src/MapData.js"></script>
+    <script src="src/Sphere.js"></script>
+    
+    <script src="src/World.js"></script>
+  </body>
+</html>
+
+<!--
+  Notes:
+  I used ChatGPT to adapt my panLeft and panRight functions to panUp and panDown (it told me to use the right vector instead of the up vector)
+  I also used ChatGPT to learn how to stringify using JSON
+  I also used ChatGPT to allow my text to be to the right of my canvas
+  I also used code from the professor's videos
+  -https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+-->
